@@ -1,110 +1,24 @@
-\# DevSphere: The Computing Innovation Hub 🌐
-
-
-
-> \*\*Tagline:\*\* Learn. Build. Play. Collaborate.\[cite: 1]
-
-
-
-\*\*DevSphere\*\* is a centralized digital platform developed by the Computing Society to unite students across multiple technical disciplines\[cite: 1]. The platform bridges Web Development, Game Engineering, Artificial Intelligence, and Data Science into a singular, interactive digital ecosystem\[cite: 1].
-
-
-
-\---
-
-
-
-\## 🎯 Project Pillars
-
-
-
-The platform is divided into four integrated divisions\[cite: 1]:
-
-
-
-\*   \*\*🌐 Web Development:\*\* Builds the core operating platform, authenticated user dashboards, resource portals, and integration endpoints\[cite: 1].
-
-\*   \*\*🎮 Game Development:\*\* Develops the arcade learning zone featuring 2D logic challenges, debugging games, and weekly competitive club challenges\[cite: 2].
-
-\*   \*\*🤖 Artificial Intelligence:\*\* Delivers personalized learning paths, smart code assistance, and intelligent resource discovery\[cite: 2].
-
-\*   \*\*📊 Data Science:\*\* Collects platform telemetry to deliver insights on member skill progression, game completions, and popular campus technologies\[cite: 3].
-
-
-
-\---
-
-
-
-\## 🏗️ Web Division Architecture \& Tiered Structure
-
-
-
-To support members with varying levels of programming experience, tasks are structured into three distinct tiers\[cite: 1, 2]:
-
-
-
-| Skill Tier | Work Focus | Scope of Responsibility |
-
-| :--- | :--- | :--- |
-
-| \*\*Beginner\*\* | UI \& Layouts\[cite: 2] | Landing pages, profile views, navigation bars, footers, forms, and atomic UI components\[cite: 2]. |
-
-| \*\*Intermediate\*\* | Logic \& APIs\[cite: 2] | Authentication, database integration, user dashboards, project submission forms, and arcade wrappers\[cite: 2]. |
-
-| \*\*Advanced\*\* | System Architecture\[cite: 2] | Role-based access control (RBAC), cloud deployment, real-time telemetry pipelines, and performance optimization\[cite: 2]. |
-
-
-
-\---
-
-
-
-\## 🛠️ Tech Stack
-
-
-
-\*   \*\*Frontend Framework:\*\* \[React](https://react.dev/) + \[Vite](https://vitejs.dev/)
-
-\*   \*\*Language:\*\* JavaScript (ES6+) / JSX
-
-\*   \*\*Styling:\*\* CSS3 (Variables \& Modern Flexbox/Grid)
-
-\*   \*\*Version Control:\*\* Git \& GitHub
-
-
-
-\---
-
-
-
-\## 🚀 Getting Started
-
-
-
-Follow these steps to run the local development server:
-
-
-
-\### Prerequisites
-
-
-
-\*   \[Node.js](https://nodejs.org/) (v18.0 or higher recommended)
-
-\*   `npm` (bundled with Node.js)
-
-
-
-\### Installation
-
-
-
-1\. \*\*Clone the repository:\*\*
-
-&#x20;  ```bash
-
-&#x20;  git clone \[https://github.com/your-society-repo/devsphere-hub.git](https://github.com/your-society-repo/devsphere-hub.git)
-
-&#x20;  cd devsphere-hub
-
+# Computing Society Hub 🌐
+
+> **Tagline:** Learn. Build. Play. Collaborate.
+
+Welcome to the central repository for the Computing Society Hub project. This platform unites four core technical streams—**Web Development**, **Game Development**, **Artificial Intelligence**, and **Data Science**—into a collaborative digital space where students build, learn, compete, and showcase work.
+
+---
+
+## 📂 Repository Layout
+
+```text
+computing-society-hub/
+├── README.md                 # Society hub project overview & guide
+├── devsphere-hub/            # Web application codebase (React + Vite)
+│   ├── public/               # Static assets & public icons
+│   ├── src/                  # React source files (components, styles)
+│   │   ├── assets/           # Media & brand graphics
+│   │   ├── App.jsx           # Application shell & root router
+│   │   ├── homepage.jsx      # Hub landing page component
+│   │   ├── homepage.css      # Landing page styles
+│   │   └── main.jsx          # React DOM entry point
+│   ├── index.html            # HTML mount template
+│   ├── package.json          # Node dependencies & run scripts
+│   └── vite.config.js        # Vite build tool configuration
