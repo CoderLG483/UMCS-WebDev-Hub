@@ -1,0 +1,305 @@
+Fan<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Admin Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+
+      tailwind.config = {
+
+        darkMode: 'media',
+
+      }
+
+    </script>
+
+</head>
+
+
+
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen">
+
+
+
+    <nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-lg">
+
+        <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+
+        <a href="{{ url_for('logout') }}"
+
+           class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded font-semibold transition">
+
+            Logout
+
+        </a>
+
+    </nav>
+
+
+
+    <div class="container mx-auto py-10 px-6">
+
+
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% if messages %}
+
+            <div class="mb-6">
+
+                {% for category, msg in messages %}
+
+                    <div class="p-4 mb-3 rounded text-white
+
+                                {% if category == 'success' %} bg-green-600 dark:bg-green-800
+
+                                {% elif category == 'danger' %} bg-red-600 dark:bg-red-800
+
+                                {% elif category == 'warning' %} bg-yellow-500 dark:bg-yellow-700
+
+                                {% else %} bg-blue-600 dark:bg-blue-800 {% endif %}">
+
+                        {{ msg }}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+        {% endwith %}
+
+
+
+        <h2 class="text-3xl font-bold mb-6 text-gray-800 dark:text-gray-100">Administration Panel</h2>
+
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+
+
+            <a href="{{ url_for('view_events') }}"
+
+               class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-blue-600">
+
+
+
+                <div class="text-blue-600 mb-4">
+
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor"
+
+                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+
+                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2
+
+                                 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+
+                        </path>
+
+                    </svg>
+
+                </div>
+
+
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Event Management</h3>
+
+                <p class="text-gray-600 dark:text-gray-400 mt-1">Create, edit, publish, and delete church events.</p>
+
+            </a>
+
+            <a href="{{ url_for('view_sermons') }}"
+   class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-indigo-600">
+
+    <div class="text-indigo-600 mb-4">
+        <!-- SVG Icon for Video/Sermon (a simple video camera) -->
+        <svg class="w-12 h-12" fill="none" stroke="currentColor"
+             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M15 10l4.555-4.555A2 2 0 0122 7.828v8.344a2 2 0 01-3.445 1.487L15 14M9 10H5a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2v-4a2 2 0 00-2-2z"/>
+        </svg>
+    </div>
+
+    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Sermon Management</h3>
+    <p class="text-gray-600 dark:text-gray-400 mt-1">Upload, publish, and manage sermons and video links.</p>
+</a>
+
+             <a href="{{ url_for('view_members') }}"
+
+               class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-green-600">
+
+
+
+                <div class="text-green-600 mb-4">
+
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor"
+
+                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+
+                              d="M17 20h5v-2a3 3 0
+
+                                00-5.356-1.857M17 20v-2m0 2H7m10
+
+                                0h2.648l1.656-1.656m-2.288-2.288A4 4
+
+                                0 009 10a4 4 0 00-5.356-1.857M5.356
+
+                                8.143A4 4 0 009 10m0 0v-2m0
+
+                                2h10m-2 4h2">
+
+                        </path>
+
+                    </svg>
+
+                </div>
+
+
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Member Management</h3>
+
+                <p class="text-gray-600 dark:text-gray-400 mt-1">Add, edit, and organize church members.</p>
+
+            </a>
+
+
+
+            <a href="{{ url_for('view_ministries') }}"
+
+               class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-purple-600">
+
+
+
+                <div class="text-purple-600 mb-4">
+
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor"
+
+                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+
+                              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+
+                        </path>
+
+                    </svg>
+
+                </div>
+
+
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ministry Management</h3>
+
+                <p class="text-gray-600 dark:text-gray-400 mt-1">Add, edit, and organize church ministries.</p>
+
+            </a>
+
+
+
+            <a href="{{ url_for('view_social_media') }}"
+
+               class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-pink-500">
+
+
+
+                <div class="text-pink-500 mb-4">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+
+                              d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+
+                    </svg>
+
+                </div>
+
+
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Social Media Management</h3>
+
+                <p class="text-gray-600 dark:text-gray-400 mt-1">Manage church social media and contact links.</p>
+
+            </a>
+	
+
+ <a href="{{ url_for('view_announcements') }}"
+
+               class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-yellow-500">
+
+
+
+                <div class="text-yellow-500 mb-4">
+
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor"
+
+                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+
+                              d="M11 5h2m-1 14a7 7 0 110-14 7 7 0
+
+                                 010 14zm0 0v-4m0-4h.01">
+
+                        </path>
+
+                    </svg>
+
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Announcements</h3>
+
+                <p class="text-gray-600 dark:text-gray-400 mt-1">Post and manage public announcements.</p>
+
+            </a>
+            <a href="{{ url_for('view_about_sections') }}"
+
+               class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-orange-500">
+
+
+
+                <div class="text-orange-500 mb-4">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+
+                              d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+
+                    </svg>
+
+                </div>
+
+
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">About Church</h3>
+
+                <p class="text-gray-600 dark:text-gray-400 mt-1">Manage public church info for 'About' page.</p>
+
+            </a>
+
+            </div>
+
+	</div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

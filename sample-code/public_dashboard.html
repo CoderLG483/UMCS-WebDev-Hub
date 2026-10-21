@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COGOP OHR - Member Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 min-h-screen">
+
+    <nav class="bg-gradient-to-r from-blue-700 to-red-700 text-white px-6 py-4 flex justify-between items-center shadow-lg">
+        <div class="flex items-center space-x-4" >
+            <div class="flex items-center">
+                <i class="fas fa-church text-2xl mr-3"></i>
+                <h1 class="text-2xl font-bold">COGOP Old Hope Road</h1>
+            </div>
+        </div>
+        <div class="flex items-center space-x-4">
+
+            <a href="/admin/login" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded font-semibold transition">
+                <i class="fas fa-lock mr-2"></i> Admin Login
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto py-10 px-4 md:px-6 ">
+        <div class="text-center mb-12">
+
+            <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">Welcome to Our Church Portal</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Stay connected with the Church of God of Prophecy, Old Hope Road.<br>
+                Find information about events, ministries, and ways to get involved.
+            </p>
+            <div class="mt-6 text-blue-800 dark:text-blue-400">
+                <i class="fas fa-quote-left mr-2"></i>
+                <span class="italic">Reconciling the world to Christ through the power of the Holy Spirit</span>
+                <i class="fas fa-quote-right ml-2"></i>
+            </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-blue-600 to-red-600 rounded-xl shadow-lg p-6 mb-10 text-white">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div>
+                    <div class="text-3xl font-bold mb-2">
+                        <i class="fas fa-calendar-alt mr-3"></i>
+                        {{ upcoming_events_count if upcoming_events_count else '0' }}
+                    </div>
+                    <p class="text-blue-100">Upcoming Events</p>
+                </div>
+
+                <div>
+                    <div class="text-3xl font-bold mb-2">
+                        <i class="fas fa-bullhorn mr-3"></i>
+                        {{ recent_announcements_count if recent_announcements_count else '0' }}
+                    </div>
+                    <p class="text-blue-100">Recent Announcements</p>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold mb-2">
+                        <i class="fas fa-hands-helping mr-3"></i>
+                        {{ active_ministries_count if active_ministries_count else '0' }}
+                    </div>
+                    <p class="text-blue-100">Active Ministries</p>
+                </div>
+
+                <div>
+                    <div class="text-3xl font-bold mb-2">
+                        <i class="fas fa-hands-helping mr-3"></i>
+                        {{ active_members_count if active_members_count else '0' }}
+                    </div>
+                    <p class="text-blue-100">Active Members</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">Quick Access</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <a href="/events"
+               class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-blue-500">
+            <!-- Changed bg-white to bg-gray-50 -->
+
+                <div class="text-blue-500 mb-4">
+                    <i class="fas fa-calendar-day text-4xl"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Church Events</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">View upcoming services, meetings, and special events.</p>
+                <div class="mt-4 text-sm text-blue-600 dark:text-blue-400 font-medium">
+                    <i class="fas fa-arrow-right mr-1"></i> View Calendar
+                </div>
+            </a>
+
+            <a href="/ministries"
+               class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-purple-500">
+            <!-- Changed bg-white to bg-gray-50 -->
+
+                <div class="text-purple-500 mb-4">
+                    <i class="fas fa-hands-helping text-4xl"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Our Ministries</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Explore ways to serve and get involved in church ministries.</p>
+                <div class="mt-4 text-sm text-purple-600 dark:text-purple-400 font-medium">
+                    <i class="fas fa-arrow-right mr-1"></i> Browse Ministries
+                </div>
+            </a>
+
+            <a href="/announcements"
+               class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-yellow-500">
+            <!-- Changed bg-white to bg-gray-50 -->
+
+                <div class="text-yellow-500 mb-4">
+                    <i class="fas fa-bullhorn text-4xl"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Announcements</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Latest church news, updates, and important information.</p>
+                <div class="mt-4 text-sm text-yellow-600 dark:text-yellow-400 font-medium">
+                    <i class="fas fa-arrow-right mr-1"></i> Read Updates
+                </div>
+            </a>
+
+            <a href="/social-media"
+               class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-pink-500">
+            <!-- Changed bg-white to bg-gray-50 -->
+
+                <div class="text-pink-500 mb-4">
+                    <i class="fas fa-share-alt text-4xl"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Connect With Us</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Follow us on social media and stay connected online.</p>
+                <div class="mt-4 text-sm text-pink-600 dark:text-pink-400 font-medium">
+                    <i class="fas fa-arrow-right mr-1"></i> View Links
+                </div>
+            </a>
+
+            <a href="/volunteer"
+               class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-green-500">
+            <!-- Changed bg-white to bg-gray-50 -->
+
+                <div class="text-green-500 mb-4">
+                    <i class="fas fa-hand-paper text-4xl"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Serve & Volunteer</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Find opportunities to serve in the church and community.</p>
+                <div class="mt-4 text-sm text-green-600 dark:text-green-400 font-medium">
+                    <i class="fas fa-arrow-right mr-1"></i> Volunteer Now
+                </div>
+            </a>
+
+            <a href="/about"
+               class="block p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-2xl hover:shadow-xl transition transform hover:-translate-y-1 border-t-4 border-indigo-500">
+            <!-- Changed bg-white to bg-gray-50 -->
+
+                <div class="text-indigo-500 mb-4">
+                    <i class="fas fa-info-circle text-4xl"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">About Our Church</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">Learn about our beliefs, leadership, and contact information.</p>
+                <div class="mt-4 text-sm text-indigo-600 dark:text-indigo-400 font-medium">
+                    <i class="fas fa-arrow-right mr-1"></i> Learn More
+                </div>
+            </a>
+
+        </div>
+
+        <div class="mt-12">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Upcoming Events</h3>
+                <a href="/events" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                    View All <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+            {% if upcoming_events and upcoming_events|length > 0 %}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for event in upcoming_events[:3] %}
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-5 border-l-4 border-blue-500">
+                <!-- Changed bg-white to bg-gray-50 -->
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="font-bold text-lg text-gray-800 dark:text-white">{{ event.title }}</h4>
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 text-xs font-semibold px-3 py-1 rounded-full">
+                            {{ event.event_date }}
+                        </span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">{{ event.description[:100] }}{% if event.description|length > 100 %}...{% endif %}</p>
+                    <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>{{ event.location }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow p-8 text-center">
+            <!-- Changed bg-white to bg-gray-50 -->
+                <i class="fas fa-calendar-times text-4xl text-gray-300 dark:text-gray-600 mb-4"></i>
+                <p class="text-gray-500 dark:text-gray-400">No upcoming events scheduled. Check back soon!</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h4 class="font-bold text-gray-800 dark:text-white">Church of God of Prophecy</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">47G Old Hope Road, Kingston, Jamaica</p>
+                    <p class="text-gray-500 dark:text-gray-500 text-xs mt-2">
+                        <i class="fas fa-phone mr-1"></i> (876) 648-9278 |
+                        <a href = "mailto:cogop.ohr@gmail.com"><i class="fas fa-envelope ml-2 mr-1"></i> cogop.ohr@gmail.com</a>
+                    </p>
+                </div>
+
+            </div>
+            <div class="text-center mt-6 text-gray-500 dark:text-gray-600 text-sm">
+                <p>© <script>document.write(new Date().getFullYear())</script> COGOP Old Hope Road. All rights reserved.</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
